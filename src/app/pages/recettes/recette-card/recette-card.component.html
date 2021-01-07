@@ -1,0 +1,21 @@
+<nb-card size="medium" (click)="showLargeModal()">
+  <nb-card-body>
+    <img class="picture" [src]="recette.image" />
+    <div class="details">
+      <div class="title">
+        <a>{{recette.nom}}</a>
+      </div>
+      <div class="description">
+        {{recette.description}}
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <a>
+      <i class="ion-android-people"></i> {{recette.personnes}}
+    </a>
+    <a>
+      <i class="ion-ios-star"></i> {{recette.level}}
+    </a>
+  </nb-card-footer>
+</nb-card>

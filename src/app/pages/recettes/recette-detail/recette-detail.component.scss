@@ -1,0 +1,59 @@
+@import '../../../@theme/components/theme-settings/theme-settings.component.scss';
+
+@include nb-install-component() {
+
+  .demo-rating {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .star {
+    font-size: 1.5rem;
+    color: nb-theme(color-fg);
+  }
+
+  ngb-rating {
+    outline: none;
+  }
+
+  ngb-rating i {
+    color: nb-theme(color-success);
+    @include nb-for-theme(cosmic) {
+      color: nb-theme(color-primary);
+    }
+  }
+
+  .picture {
+    max-width:100%;
+    max-height:100%;
+    border-radius: 10px;
+    flex: 1;
+  }
+
+  .video {
+    max-width:100%;
+    max-height:100%;
+    flex: 1;
+  }
+
+  .modal-header, .modal-footer{
+    border: none;
+  }
+
+  .modal-lg {
+    width: 1000px;
+  }
+
+  .mb-5 {
+    font-size: 1.2rem;
+  }
+
+  .name{
+    font-size: 3.2rem;
+  }
+
+  .ion-android-people {
+    font-size: 2rem;
+  }
+}

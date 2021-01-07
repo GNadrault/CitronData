@@ -1,0 +1,11 @@
+<div class="header-container" [class.left]="position === 'normal'" [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <a class="navigation"><img id="logo-citron" src="../../../../assets/images/citronLogo70.png" /></a>
+  </div>
+  <a class="nav-link" *ngIf="!client" [routerLink]="['/pages/commandes']"><i class="nb-e-commerce"></i><span> Commandes</span></a>
+  <a class="nav-link" *ngIf="client" [routerLink]="['/pages/recettes']"><i class="ion-android-restaurant"></i><span> Recettes</span></a>
+  <a class="nav-link" *ngIf="!client" [routerLink]="['/pages/dashboard']"><i class="ion-arrow-graph-up-right"></i><span> Statistiques</span></a>
+</div>
+
+<div class="header-container">
+</div>

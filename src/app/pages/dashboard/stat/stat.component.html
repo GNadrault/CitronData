@@ -1,0 +1,15 @@
+<nb-card size="xsmall" [style.background-color]="stat.color" (click)="clickDash()">
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+                <span>
+                <i class="stat-icon" [ngClass]="stat.icon"></i>
+                </span>
+            </div>
+            <div class="info">
+                {{stat.name}}
+                <div class="value">{{stat.value}} {{stat.unite}}</div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

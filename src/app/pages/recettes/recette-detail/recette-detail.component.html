@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <button class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-6">
+      <nb-card size="medium">
+        <img class="picture" [src]="recette.image" />
+      </nb-card>
+      <nb-card size="medium">
+        <iframe class="video" scrolling="no" [src]="afficherVideo()" style="width:100%; height:100%;"></iframe>
+      </nb-card>
+    </div>
+    <div class="col-md-6">
+      <div class="font-row font-secondary">
+        <div class="header">
+          <div class="name bold">{{recette.nom}}</div>
+        </div>
+        <p>
+          {{recette.description}}
+        </p>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-md-4">
+            <ngb-rating [(rate)]="recette.level" max=3 [readonly]="true">
+              <ng-template let-fill="fill">
+                <span class="star fill" [class.filled]="fill === 100">
+                  <i class="ion-android-star" *ngIf="fill === 100"></i>
+                  <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+                </span>
+              </ng-template>
+            </ngb-rating>
+          </div>
+          <div class="col-md-4 offset-4">
+            <i class="ion-android-people"></i> {{recette.personnes}}
+          </div>
+        </div>
+      </div>
+      <br />
+      <h3>Ingrédients</h3>
+      <ul class="mb-5">
+        <li *ngFor="let ing of recette.ingredients">{{ing.nom}}</li>
+      </ul>
+      <hr />
+      <h3>Etapes</h3>
+      <ul class="mb-5">
+        <li *ngFor="let step of recette.steps">{{step.nom}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-md btn-primary" (click)="closeModal()">Fermer</button>
+</div>

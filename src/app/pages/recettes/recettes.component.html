@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-12 col-lg-4 col-xxxl-3">
+    <nb-card>
+      <nb-card-header icon="nb-gear" style="border: none;">Filtres</nb-card-header>
+      <nb-card-body>
+        <h6>INGREDIENTS</h6>
+        <nb-select multiple placeholder="Ingrédients" shape="round" status="warning"
+          (selectedChange)="onFilterIngredientChange($event)">
+          <nb-option *ngFor="let ingredient of ingredients" [value]="ingredient">{{ingredient}}</nb-option>
+        </nb-select>
+        <br />
+        <h6>DIFFICULTE</h6>
+        <div class="settings-row">
+          <div class="btn-group btn-group-toggle btn-group-full-width" data-toggle="buttons" (change)="onFilterLevelChange()">
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="difficulte.marmiton">
+              <input ngbButton type="checkbox" [(ngModel)]="difficulte.marmiton"> Marmiton
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="difficulte.chef">
+              <input ngbButton type="checkbox" [(ngModel)]="difficulte.chef"> Chef
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="difficulte.topchef">
+              <input ngbButton type="checkbox" [(ngModel)]="difficulte.topchef"> Top
+              chef
+            </label>
+          </div>
+        </div>
+        <h6>DUREE (MIN)</h6>
+        <div class="settings-row">
+          <div class="btn-group btn-group-toggle btn-group-full-width" data-toggle="buttons" (change)="onFilterDureeChange()">
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="duree.zero">
+              <input ngbButton type="checkbox" [(ngModel)]="duree.zero"> &lsaquo; 10
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="duree.dix">
+              <input ngbButton type="checkbox" [(ngModel)]="duree.dix"> 10-30
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="duree.trente">
+              <input ngbButton type="checkbox" [(ngModel)]="duree.trente"> 30-60
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-warning" [class.active]="duree.heure">
+              <input ngbButton type="checkbox" [(ngModel)]="duree.heure"> &rsaquo; 60
+            </label>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-md-12 col-lg-8 col-xxxl-9">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchRecette" placeholder="Recette...">
+            <span class="input-group-append">
+              <button class="btn btn-warning input-group-text" (click)="onSearchClick()">
+                Rechercher
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="font-w-bold text-right" id="resultat">{{numRecette.value}} résultats</h4>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <!-- <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6" *ngFor="let recetteSource of recetteSources | filter:searchRecette | paginate: { itemsPerPage: 8, currentPage: p};">  -->
+        <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6"
+          *ngFor="let recetteSource of recetteSources | paginate: { itemsPerPage: 8, currentPage: p};">
+          <ngx-recette-card [recette]="recetteSource._source"></ngx-recette-card>
+        </div>
+      </div>
+      <div class="col-md-6 offset-md-6">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

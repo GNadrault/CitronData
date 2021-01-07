@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xxxl-3 col-md-6" id="stat-inscription">
+    <ngx-stat [stat]="statInscriptions" (numGraph)="onGraphChange($event)" >
+    </ngx-stat>
+  </div>
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-stat [stat]="statCommandes" (numGraph)="onGraphChange($event)"></ngx-stat>
+  </div>
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-stat [stat]="statArticles" (numGraph)="onGraphChange($event)">
+    </ngx-stat>
+  </div>
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-stat [stat]="statChiffreAffaire" (numGraph)="onGraphChange($event)">
+    </ngx-stat>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <nb-card size="large">
+          <nb-card-body>
+            <ngx-graph [num]="graphnum"></ngx-graph>
+          </nb-card-body>
+        </nb-card>
+  </div>
+</div>
